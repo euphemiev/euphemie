@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu</title>
 
-<style>
+  <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -36,7 +36,7 @@
 </head>
 
 <body>
-<header>
+  <header>
     <h1>My Website</h1>
     <nav>
       <ul>
@@ -46,13 +46,11 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-</header>
-
+  </header>
 
   <main>
-
+    <h2 id="home">Welcome!</h2>
+    <p>This is where your content goes.</p>
   </main>
-
 </body>
-
 </html>
