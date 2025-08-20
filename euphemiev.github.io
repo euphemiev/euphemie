@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><title>My Website</title></head>
-<body>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -28,6 +27,12 @@
     <section id="services"><h1>Services</h1><p>What we offer.</p></section>
     <section id="contact"><h1>Contact</h1><p>Get in touch!</p></section>
   </main>
+
+
+
+
+
+
 
 </body>
 </html>
