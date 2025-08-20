@@ -12,7 +12,7 @@
     }
     header {
       background: #333;
-      color: white;
+      color: blue;
       padding: 10px 20px;
     }
     nav ul {
@@ -25,7 +25,7 @@
       margin-right: 20px;
     }
     nav ul li a {
-      color: white;
+      color: black;
       text-decoration: none;
       font-weight: bold;
     }
