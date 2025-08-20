@@ -35,7 +35,9 @@
       text-decoration: underline;
     }
   </style>
+</head>
 
+<body>
 <header>
     <h1>My Website</h1>
     <nav>
@@ -46,18 +48,13 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-  </header>
+</header>
 
 
   <main>
 
   </main>
 
-
-
-
-
-
-
 </body>
+
 </html>
