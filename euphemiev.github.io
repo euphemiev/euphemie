@@ -3,38 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu</title>
-
+  <title>Menu Test</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    header {
-      background: #333;
-      color: blue;
-      padding: 10px 20px;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-    nav ul li {
-      margin-right: 20px;
-    }
-    nav ul li a {
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
+    body { margin: 0; font-family: Arial, sans-serif; }
+    header { background: yellow; padding: 10px; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+    nav li { margin-right: 20px; }
+    nav a { color: black; text-decoration: none; font-weight: bold; }
   </style>
 </head>
-
 <body>
   <header>
     <h1>My Website</h1>
@@ -47,10 +24,5 @@
       </ul>
     </nav>
   </header>
-
-  <main>
-    <h2 id="home">Welcome!</h2>
-    <p>This is where your content goes.</p>
-  </main>
 </body>
 </html>
