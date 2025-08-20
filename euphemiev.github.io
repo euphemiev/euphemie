@@ -8,6 +8,7 @@
   <title>Simple Menu Example</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header class="menu-bar">
@@ -22,10 +23,7 @@
   </header>
 
   <main>
-    <section id="home"><h1>Home</h1><p>Welcome to the website!</p></section>
-    <section id="about"><h1>About</h1><p>Some info about us.</p></section>
-    <section id="services"><h1>Services</h1><p>What we offer.</p></section>
-    <section id="contact"><h1>Contact</h1><p>Get in touch!</p></section>
+
   </main>
 
 
