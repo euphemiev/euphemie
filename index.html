@@ -2,323 +2,89 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Image Mosaic · Starter Template</title>
-    <meta name="description"
-        content="A sleek, responsive image mosaic template with filtering, search, and a built‑in lightbox. Vanilla HTML/CSS/JS." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>euphemie</title>
     <style>
-        :root {
-            --bg: #0b0e14;
-            --panel: #111726;
-            --muted: #6b7280;
-            --text: #e5e7eb;
-            --accent: #7dd3fc;
-            --ring: rgba(125, 211, 252, .5);
-            --radius: 16px;
-            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
-        }
-
-        * {
-            box-sizing: border-box
-        }
-
-        html,
-        body {
-            height: 100%
-        }
-
         body {
             margin: 0;
-            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-            background: radial-gradient(1200px 800px at 10% -10%, #122041 0%, transparent 60%),
-                radial-gradient(1000px 600px at 110% 10%, #1a2a52 0%, transparent 60%),
-                var(--bg);
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: Arial, sans-serif;
         }
 
-        .container {
-            max-width: 1200px;
-            margin-inline: auto;
-            padding: 24px
-        }
-
+        /* Header styling */
         header {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 18px
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #67e8f9, #a78bfa);
-            box-shadow: var(--shadow)
-        }
-
-        h1 {
-            font-size: clamp(20px, 2vw, 28px);
-            margin: 0
-        }
-
-        .muted {
-            color: var(--muted)
-        }
-
-        /* Controls */
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center
-        }
-
-        .search {
-            position: relative
-        }
-
-        .search input {
-            background: var(--panel);
-            border: 1px solid #1f2937;
-            color: var(--text);
-            padding: 12px 14px;
-            border-radius: 12px;
-            outline: none;
-            min-width: 240px;
-        }
-
-        .search input:focus {
-            box-shadow: 0 0 0 4px var(--ring);
-            border-color: #334155
-        }
-
-        .chip {
-            border: 1px solid #1f2937;
-            background: var(--panel);
-            color: var(--text);
-            padding: 8px 12px;
-            border-radius: 999px;
-            cursor: pointer;
-            user-select: none;
-            transition: .2s;
-        }
-
-        .chip[aria-pressed="true"],
-        .chip:hover {
-            border-color: #334155;
-            box-shadow: 0 0 0 3px rgba(51, 65, 85, .35)
-        }
-
-        /* Layout toggle */
-        .toggle {
-            display: flex;
-            gap: 8px;
-            align-items: center
-        }
-
-        .toggle button {
-            background: var(--panel);
-            border: 1px solid #1f2937;
-            color: var(--text);
-            padding: 8px 12px;
-            border-radius: 10px;
-            cursor: pointer
-        }
-
-        .toggle button[aria-pressed="true"] {
-            outline: 3px solid var(--ring);
-            border-color: #334155
-        }
-
-        /* Grid (uniform tiles) */
-        .grid {
-            display: grid;
-            gap: 12px;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        }
-
-        .tile {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius);
-            background: #0f172a;
-            box-shadow: var(--shadow)
-        }
-
-        .tile img {
+            position: fixed;
+            /* Fixes it to the top */
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            filter: saturate(1.05);
-            transition: transform .35s ease
+            background: #333;
+            padding: 10px 20px;
+            z-index: 1000;
+            /* Ensures it stays above content */
         }
 
-        .tile:hover img {
-            transform: scale(1.05)
-        }
-
-        .tile .badge {
-            position: absolute;
-            left: 8px;
-            top: 8px;
-            background: rgba(0, 0, 0, .55);
-            color: #fff;
-            font-size: 12px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            backdrop-filter: blur(6px)
-        }
-
-        /* Masonry (variable heights) */
-        .masonry {
-            column-count: 1;
-            column-gap: 12px
-        }
-
-        @media (min-width: 560px) {
-            .masonry {
-                column-count: 2
-            }
-        }
-
-        @media (min-width: 900px) {
-            .masonry {
-                column-count: 3
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .masonry {
-                column-count: 4
-            }
-        }
-
-        .brick {
-            break-inside: avoid;
-            margin-bottom: 12px;
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow)
-        }
-
-        .brick img {
-            width: 100%;
-            height: auto;
-            display: block
-        }
-
-        /* Card footer */
-        .meta {
-            position: absolute;
-            inset-inline: 0;
-            bottom: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 12px;
-            background: linear-gradient(to top, rgba(0, 0, 0, .6), transparent);
-            color: #fff
-        }
-
-        .meta .title {
-            font-weight: 600;
-            font-size: 14px
-        }
-
-        /* Lightbox */
-        dialog#lightbox {
-            border: none;
+        /* Horizontal menu */
+        nav ul {
+            list-style: none;
+            margin: 0;
             padding: 0;
-            width: min(96vw, 1200px);
-            height: min(92vh, 900px);
-            border-radius: 20px;
-            background: #000;
-            box-shadow: var(--shadow);
-        }
-
-        dialog#lightbox::backdrop {
-            background: rgba(0, 0, 0, .75)
-        }
-
-        .lightbox-wrap {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: grid;
-            grid-template-rows: 1fr auto
-        }
-
-        .lightbox-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: #000
-        }
-
-        .lightbox-bar {
             display: flex;
-            gap: 10px;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            background: rgba(255, 255, 255, .03)
+            /* Makes it horizontal */
         }
 
-        .btn {
-            background: #0b1220;
-            border: 1px solid #1f2937;
-            color: #e5e7eb;
-            padding: 10px 12px;
-            border-radius: 12px;
-            cursor: pointer
+        nav ul li {
+            margin-right: 20px;
         }
 
-        .btn:hover {
-            border-color: #334155
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
         }
 
-        /* Footer */
-        footer {
-            color: var(--muted);
-            text-align: center;
-            padding: 32px 12px
+        nav ul li a:hover {
+            text-decoration: underline;
         }
 
-        a {
-            color: var(--accent);
-            text-decoration: none
+        /* Push page content below header */
+        main {
+            padding-top: 70px;
+            /* Adjust to match header height */
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <div class="brand">
-                <div class="logo" aria-hidden="true"></div>
-                <div>
-                    <h1>Image Mosaic</h1>
-                    <div class="muted">Responsive gallery template with lightbox, search & filters</div>
-                </div>
-            </div>
-            <div class="controls" role="toolbar" aria-label="Gallery controls">
-                <div class="search">
-                    <label class="sr-only" for="q">Search</label>
-                    <input id="q" type="search" placeholder="Search photos… (e.g. city, beach)" autocomplete="of
+
+    <header>
+        <h1 style="color:white; display:inline-block; margin-right:30px;">euphémie verrier</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 id="home">Home Section</h2>
+        <p><img src="Hotsprings.png" alt="Hotsprings" style="display:block; margin:20px auto; border:2px solid black;">
+        </p>
+
+
+        <h2 id="about">About Section</h2>
+        <p>More content...</p>
+
+        <h2 id="services">Services Section</h2>
+        <p>Even more content...</p>
+
+        <h2 id="contact">Contact Section</h2>
+        <p>Last section content...</p>
+    </main>
+
+</body>
+
+</html>
