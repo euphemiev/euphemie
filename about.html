@@ -96,6 +96,46 @@
             padding: 24px;
             color: #6b7280;
         }
+
+        /* Cards with image + text */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: row;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 40%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-content h3 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: #111;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #555;
+        }
     </style>
 </head>
 
@@ -116,13 +156,24 @@
     <main class="container">
         <h1>euphémie verrier</h1>
 
-
-        <!-- Mosaic grid -->
-        <div class="mosaic">
-            <div class="mosaic-item">
+        <!-- Text next to image -->
+        <div class="card-grid">
+            <div class="card">
                 <img src="images/euphemie.png" alt="euphemie">
+                <div class="card-content">
+                    <h3> </h3>
+                    <p>French illustrator, based in Germany</p>
+                </div>
             </div>
-            <!-- Add more images as needed -->
+
+            <div class="card">
+                <img src="images/photo2.jpg" alt="Example image">
+                <div class="card-content">
+                    <h3>Title for Image 2</h3>
+                    <p>Another block of text goes here, next to the second image.</p>
+                </div>
+            </div>
+        </div>
 
         </div>
 
