@@ -4,101 +4,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>euphemie</title>
+    <title>My Website with Image Mosaic</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Header styling */
-        header {
-            position: fixed;
-            /* Fixes it to the top */
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #333;
-            padding: 10px 20px;
-            z-index: 1000;
-            /* Ensures it stays above content */
-        }
-
-        /* Horizontal menu */
-        nav ul {
-            list-style: none;
+        /* Reset */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            background: #f9fafb;
+            color: #111;
+        }
+
+        /* Header menu */
+        header {
+            background: #1f2937;
+            padding: 12px 24px;
+        }
+
+        nav ul {
             display: flex;
-            /* Makes it horizontal */
+            list-style: none;
+            gap: 20px;
+            justify-content: center;
         }
 
-        nav ul li {
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            color: white;
+        nav a {
+            color: #f3f4f6;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
-        nav ul li a:hover {
-            text-decoration: underline;
+        nav a:hover {
+            color: #38bdf8;
         }
 
-        /* Push page content below header */
-        main {
-            padding-top: 70px;
-            /* Adjust to match header height */
+        /* Page container */
+        .container {
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 16px;
+        }
+
+        /* Mosaic grid */
+        .mosaic {
+            column-count: 3;
+            /* number of columns */
+            column-gap: 12px;
+        }
+
+        .mosaic-item {
+            break-inside: avoid;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .mosaic-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .mosaic-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .mosaic {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mosaic {
+                column-count: 1;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #6b7280;
         }
     </style>
 </head>
 
 <body>
-
+    <!-- Header menu -->
     <header>
-        <h1 style="color:white; display:inline-block; margin-right:30px;">euphémie verrier</h1>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <h2 id="home">Home Section</h2>
-        <p><img src="Hotsprings.png" alt="Hotsprings" style="display:block; margin:20px auto; border:2px solid black;">
-        </p>
+    <!-- Main content -->
+    <main class="container">
+        <h1>My Image Gallery</h1>
+        <p>Welcome to my photo mosaic! Click on an image to view it larger (lightbox can be added later).</p>
 
-
-        <h2 id="about">About Section</h2>
-        <p>More content...</p>
-
-        <h2 id="services">Services Section</h2>
-        <p>Even more content...</p>
-
-        <h2 id="contact">Contact Section</h2>
-        <p>Last section content...</p>
+        <!-- Mosaic grid -->
+        <div class="mosaic">
+            <div class="mosaic-item">
+                <img src="images/photo1.jpg" alt="My first photo">
+            </div>
+            <div class="mosaic-item">
+                <img src="images/photo2.jpg" alt="Another photo">
+            </div>
+            <div class="mosaic-item">
+                <img src="images/photo3.jpg" alt="Something else">
+            </div>
+            <div class="mosaic-item">
+                <img src="images/photo4.jpg" alt="Another one">
+            </div>
+            <!-- Add more images as needed -->
+        </div>
     </main>
 
-    /* Mozaic of images */
-    <div class="mosaic">
-        <div class="mosaic-item">
-            <img src="Hotsprings.png" alt="My first photo">
-        </div>
-        <div class="mosaic-item">
-            <img src="images/photo2.jpg" alt="Another photo">
-        </div>
-        <div class="mosaic-item">
-            <img src="images/photo3.jpg" alt="Something else">
-        </div>
-        <!-- Add more items the same way -->
-    </div>
-
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 My Website · All rights reserved
+    </footer>
 </body>
 
 </html>
